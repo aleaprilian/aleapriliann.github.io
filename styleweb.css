@@ -1,0 +1,227 @@
+/* HOME PAGE */
+body{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.homepage{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: whitesmoke;
+            transform: translateY(2px);
+          }
+
+.homepage a{
+    font-weight: 700px;
+    
+}
+
+.linkweb{
+    float: right;
+            color: black;
+            text-align: center;
+            padding: 19px 16px;
+            background-color: whitesmoke;
+            text-decoration: none;
+            margin-left: 950px;
+            font-family: "cormorant garamond";
+            font-size: small;
+}
+
+
+div{
+    align-items: center;
+
+}
+
+.deskripsi{
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    margin-top: 100px;
+    margin-left: 20px;
+    color: #1a2238;
+}
+
+.animasi-text span{
+   position: relative;
+}
+
+.animasi-text span::before{
+    content: "Mahasiswa";
+    color: #ff6a3d;
+    animation: words 20s infinite;
+
+}
+
+.animasi-text span::after{
+    content: "";
+    background-color: white;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 2px solid #ff6a3d;
+    right: -8px;
+    animation: cursor .8s infinite,typing 20s steps(14) infinite ;
+
+}
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid #1a2238;
+    }
+    
+}
+
+@keyframes words{
+    0%,20% {
+        content: "Mahasiswa";
+    }
+    21%,40% {
+        content: "Mahasiswa";
+    }
+    41%,60% {
+        content: "Mahasiswa";
+    }
+    61%,80%{
+        content: "Mahasiswa";
+    }
+    81%,100% {
+        content: "Mahasiswa";
+    }
+
+    
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+
+}
+
+
+
+.ale2{
+    float: right;
+    margin-left: 20px;
+    margin-right: 200px;
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+/* END HOME PAGE */
+
+
+
+/* ABOUT AREA */
+
+.aboutsaya{
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    margin-top: 100px;
+    margin-left: 20px;
+    color: #1a2238;
+}
+
+
+
+.kelas1{
+    float: right;
+    margin-left: 20px;
+    margin-right: 200px;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+}
+
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    list-style-type: none;
+    height: 100vh;
+    gap: 20px;
+    background-color: white;
+}
+
+.icons :hover{ 
+    color: #ff6a3d;
+    transform: translateY(-5px);
+}
+
+.icons2{
+    border-radius: 40%;
+}
+
+.icons2:hover{
+    transform: translateY(-5px);
+    color: #ff6a3d;
+}
+
+
+.tugas{
+    text-align: center;
+    color: #1a2238;
+}
+
+
+
+/* Footer Area */
+
+.footer{
+    background-color: whitesmoke;
+    width: 100%;
+    height:250px;
+    margin-top: auto;
+}
+
+.contact{
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+    text-align: center;
+    font-family: "cormorand garamond";
+    margin-left: 90px;
+}
+
+.footer-icons{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+    margin-top: 0;
+    gap: 5px;
+}
+
+.footer-bottom{
+  text-align: center; 
+  margin-top: 90px;
+  margin-left: 50px;
+  margin-bottom: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: flex-end;
+    min-height: auto;
+}
+
+
+.footer-test{
+    display: flex;
+
+    align-items: flex-end;
+    background-color: whitesmoke;
+    height: 100px;
+    position: relative;
+}
