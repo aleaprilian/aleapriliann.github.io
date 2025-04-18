@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Format Media Digital, Font, dan Film Animasi Populer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelementplayer.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Georgia&family=Verdana&display=swap">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #4b5563;
+      --background-color: #f9fafb;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 12px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 1rem;
+    }
+    
+    h1 {
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      position: relative;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .media-card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .media-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .media-header {
+      padding: 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+    }
+    
+    .media-content {
+      padding: 1rem;
+    }
+    
+    .media-player {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    video, audio {
+      width: 100%;
+      border-radius: 8px;
+    }
+    
+    .media-note {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+      text-align: center;
+    }
+    
+    .download-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--primary-color);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .download-link:hover {
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .unsupported {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #ef4444;
+    }
+    
+    .image-preview, .youtube-embed, .font-preview {
+      width: 100%;
+      height: 160px;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .youtube-embed, .font-preview {
+      border: none;
+    }
+
+    .font-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f3f4f6;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+      overflow: hidden;
+    }
+
+    .video-preview, .audio-preview {
+      width: 100%;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #111827;
+      border-radius: 8px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-preview::before, .audio-preview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(37,99,235,0.3), rgba(37,99,235,0.1));
+      z-index: 1;
+    }
+
+    .video-preview-icon, .audio-preview-icon {
+      font-size: 3rem;
+      z-index: 2;
+    }
+
+    .format-specs {
+      margin-top: 0.75rem;
+      padding: 0.5rem;
+      background-color: #f3f4f6;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+
+    .format-specs div {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .format-specs div:last-child {
+      border-bottom: none;
+    }
+    
+    .image-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--secondary-color);
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      color: var(--secondary-color);
+      font-size: 0.875rem;
+    }
+    
+    @media (max-width: 768px) {
+      .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .video-icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .top-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .feature-tag {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    li {
+        float: left;
+      }
+
+      li a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 19px 16px;
+        background-color: whitesmoke;
+        text-decoration: none;
+        margin-top: 0;
+      }
+
+      li a:hover {
+        color: #ff6a3d;
+      }
+
+    .homepage{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: whitesmoke;
+            transform: translateY(2px);
+    
+          }
+
+.homepage a{
+    font-weight: 700px;
+    
+}
+  </style>
+</head>
+<body>
+        <!-- Navigation Bar -->
+        <ul class="homepage" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index (4).html">TUGAS</a></li>
+            <li><a href="index (6).html">ABOUT</a></li>
+            <li><a href="index (3).html">CONTACT</a></li>
+        </ul>
+
+
+
+  <header>
+    <h1>Format Media Digital, Font, dan Film Animasi Populer</h1>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h2 class="section-title">Format Gambar Populer</h2>
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-header">
+            <h3>JPG/JPEG</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format JPG" class="image-preview">
+            <p class="media-note">Format gambar dengan kompresi lossy, ideal untuk fotografi</p>
+            <div class="image-info">
+              <span>Ekstensi: .jpg, .jpeg</span>
+              <span>Kompresi: Lossy</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>PNG</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format PNG" class="image-preview">
+            <p class="media-note">Format gambar dengan transparansi, ideal untuk gambar digital</p>
+            <div class="image-info">
+              <span>Ekstensi: .png</span>
+              <span>Kompresi: Lossless</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>GIF</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format GIF" class="image-preview">
+            <p class="media-note">Format gambar animasi dengan dukungan 256 warna</p>
+            <div class="image-info">
+              <span>Ekstensi: .gif</span>
+              <span>Mendukung animasi</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>BMP</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format BMP" class="image-preview">
+            <p class="media-note">Format gambar bitmap tanpa kompresi dari Microsoft</p>
+            <div class="image-info">
+              <span>Ekstensi: .bmp</span>
+              <span>Kompresi: Tidak ada</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>TIFF</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format TIFF" class="image-preview">
+            <p class="media-note">Format gambar untuk pencetakan dan penyimpanan arsip</p>
+            <div class="image-info">
+              <span>Ekstensi: .tiff, .tif</span>
+              <span>Kompresi: Fleksibel</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>WebP</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format WebP" class="image-preview">
+            <p class="media-note">Format gambar modern dengan kompresi superior untuk web</p>
+            <div class="image-info">
+              <span>Ekstensi: .webp</span>
+              <span>Kompresi: Lossy/Lossless</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>SVG</h3>
+          </div>
+          <div class="media-content">
+            <svg viewBox="0 0 200 160" class="image-preview">
+              <rect x="10" y="10" width="180" height="140" fill="#f3f4f6" stroke="#2563eb" stroke-width="4" rx="10" />
+              <circle cx="100" cy="80" r="40" fill="#2563eb" opacity="0.7" />
+              <rect x="60" y="60" width="80" height="40" fill="#4f46e5" opacity="0.7" />
+              <text x="100" y="145" text-anchor="middle" fill="#2563eb" font-size="14">SVG Demo</text>
+            </svg>
+            <p class="media-note">Format vektor berdasarkan XML, skalabel tanpa kehilangan kualitas</p>
+            <div class="image-info">
+              <span>Ekstensi: .svg</span>
+              <span>Berbasis vektor</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>HEIC</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format HEIC" class="image-preview">
+            <p class="media-note">Format gambar baru dari Apple dengan kompresi lebih efisien</p>
+            <div class="image-info">
+              <span>Ekstensi: .heic</span>
+              <span>Kompresi: Tinggi</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>RAW</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format RAW" class="image-preview">
+            <p class="media-note">Format gambar tanpa proses untuk fotografi profesional</p>
+            <div class="image-info">
+              <span>Ekstensi: .raw, .cr2, .nef</span>
+              <span>Tidak terkompresi</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>PDF</h3>
+          </div>
+          <div class="media-content">
+            <img src="/api/placeholder/400/320" alt="Contoh format PDF" class="image-preview">
+            <p class="media-note">Format dokumen yang mendukung gambar dan teks</p>
+            <div class="image-info">
+              <span>Ekstensi: .pdf</span>
+              <span>Multipage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Format Video Populer</h2>
+        <div class="media-grid">
+          <div class="media-card">
+            <div class="media-header">
+              <h3>MP4 (MPEG-4)</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format paling umum dengan dukungan luas di semua perangkat</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.mp4</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>H.264, H.265</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Sangat Baik</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Kompatibilitas Luas</span>
+                <span class="feature-tag">Streaming</span>
+                <span class="feature-tag">Kualitas Baik</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>AVI</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/avi/sample_960x400_ocean_with_audio.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format klasik Microsoft, transcoded ke MP4 untuk playback</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.avi</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>DivX, XviD</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Terbatas</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Kompatibilitas Lama</span>
+                <span class="feature-tag">Container Fleksibel</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>MKV</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/mkv/sample_960x400_ocean_with_audio.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format open source, transcoded ke MP4 untuk playback</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.mkv</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>H.264, H.265, AV1</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Terbatas</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Multi-Track</span>
+                <span class="feature-tag">Subtitle Internal</span>
+                <span class="feature-tag">Fitur Lanjutan</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>MOV</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/mov/sample_640x360.mov" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format asli Apple, mendukung H.264 untuk web</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.mov</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>Apple ProRes, H.264</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Sedang</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Editing Video</span>
+                <span class="feature-tag">Kualitas Tinggi</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>WMV</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/wmv/sample_640x360.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format Microsoft, transcoded ke MP4 untuk playback</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.wmv</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>VC-1, WMV</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Rendah</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">DRM Support</span>
+                <span class="feature-tag">Windows Friendly</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>FLV</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/flv/sample_640x360.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format Flash, transcoded ke MP4 untuk playback</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.flv</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>VP6, H.264</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Menurun</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Legacy Web</span>
+                <span class="feature-tag">Streaming Era Flash</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>WebM</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://www.w3schools.com/html'''
+  
+  /mov_bbb.webm" type="video/webm">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format open source untuk web dengan kualitas tinggi</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.webm</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>VP8, VP9, AV1</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Sangat Baik</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Open Source</span>
+                <span class="feature-tag">HTML5</span>
+                <span class="feature-tag">Efisiensi Tinggi</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>AVCHD</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/mts/sample_960x540.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format kamera HD, transcoded ke MP4 untuk playback</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.mts, .m2ts</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>H.264</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Rendah</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">HD Camera</span>
+                <span class="feature-tag">Blu-ray</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>MPEG-2</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/mpeg/sample_640x360.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format DVD, transcoded ke MP4 untuk playback</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.mpg, .mpeg, .ts</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>MPEG-2</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Rendah</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">DVD Standard</span>
+                <span class="feature-tag">Broadcast TV</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-card">
+            <div class="media-header">
+              <h3>3GP</h3>
+            </div>
+            <div class="media-content">
+              <div class="media-player">
+                <video controls>
+                  <source src="https://filesamples.com/samples/video/3gp/sample_320x240.3gp" type="video/3gpp">
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+              <p class="media-note">Format video untuk perangkat mobile lama</p>
+              <div class="format-specs">
+                <div>
+                  <span>Ekstensi:</span>
+                  <span>.3gp</span>
+                </div>
+                <div>
+                  <span>Codec Umum:</span>
+                  <span>H.263, MPEG-4</span>
+                </div>
+                <div>
+                  <span>Dukungan Web:</span>
+                  <span>Sedang</span>
+                </div>
+              </div>
+              <div class="top-features">
+                <span class="feature-tag">Mobile Legacy</span>
+                <span class="feature-tag">Ukuran Kecil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="section">
+      <h2 class="section-title">10 Format Audio Populer</h2>
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-header">
+            <h3>MP3</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Format audio paling populer dengan kompatibilitas luas</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.mp3</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossy</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Sangat Baik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>AAC</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://filesamples.com/samples/audio/aac/sample1.aac" type="audio/aac">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Advanced Audio Coding dengan kualitas lebih baik dari MP3</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.aac</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossy</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Baik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>WAV</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.wav" type="audio/wav">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Format audio tanpa kompresi dengan kualitas tinggi</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.wav</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Tidak ada</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Baik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>FLAC</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://filesamples.com/samples/audio/flac/sample1.flac" type="audio/flac">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Format audio lossless untuk audiophile</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.flac</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossless</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Sedang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>OGG</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.ogg" type="audio/ogg">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Format audio open source dengan kompresi efisien</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.ogg</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossy</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Baik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>M4A</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://filesamples.com/samples/audio/m4a/sample1.m4a" type="audio/mp4">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Container audio Apple dengan codec AAC</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.m4a</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossy</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Baik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>AMR</h3>
+          </div>
+          <div class="media-content">
+            <div class="media-player">
+              <audio class="mejs-player" controls>
+                <source src="https://filesamples.com/samples/audio/amr/sample1.amr" type="audio/amr">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
+            </div>
+            <p class="media-note">Format audio untuk rekaman suara di ponsel</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.amr</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossy</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Terbatas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>WMA</h3>
+          </div>
+          <div class="media-content">
+            <div class="audio-preview">
+              <span class="audio-preview-icon">🎵</span>
+            </div>
+            <p class="media-note">Windows Media Audio dengan kompresi tinggi</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.wma</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossy</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Rendah</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>ALAC</h3>
+          </div>
+          <div class="media-content">
+            <div class="audio-preview">
+              <span class="audio-preview-icon">🎵</span>
+            </div>
+            <p class="media-note">Apple Lossless Audio Codec untuk kualitas tinggi</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.m4a</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Lossless</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Sedang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>AIFF</h3>
+          </div>
+          <div class="media-content">
+            <div class="audio-preview">
+              <span class="audio-preview-icon">🎵</span>
+            </div>
+            <p class="media-note">Audio Interchange File Format tanpa kompresi</p>
+            <div class="format-specs">
+              <div>
+                <span>Ekstensi:</span>
+                <span>.aiff, .aif</span>
+              </div>
+              <div>
+                <span>Kompresi:</span>
+                <span>Tidak ada</span>
+              </div>
+              <div>
+                <span>Dukungan Web:</span>
+                <span>Sedang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">10 Font Populer</h2>
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Calibri</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Calibri, sans-serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font sans-serif modern, default Microsoft Office</p>
+            <div class="image-info">
+              <span>Desainer: Lucas de Groot</span>
+              <span>Kegunaan: Dokumen, UI</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Times New Roman</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: 'Times New Roman', serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font serif klasik untuk dokumen formal</p>
+            <div class="image-info">
+              <span>Desainer: Stanley Morison</span>
+              <span>Kegunaan: Cetak, Akademik</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Arial</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Arial, sans-serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font sans-serif bersih untuk teks serbaguna</p>
+            <div class="image-info">
+              <span>Desainer: Robin Nicholas</span>
+              <span>Kegunaan: Web, Dokumen</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Helvetica</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Helvetica, sans-serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font sans-serif ikonik untuk desain modern</p>
+            <div class="image-info">
+              <span>Desainer: Max Miedinger</span>
+              <span>Kegunaan: Branding, Web</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Garamond</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Garamond, serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font serif elegan untuk teks cetak</p>
+            <div class="image-info">
+              <span>Desainer: Claude Garamond</span>
+              <span>Kegunaan: Buku, Editorial</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Courier New</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: 'Courier New', monospace;">The quick brown fox jumps</div>
+            <p class="media-note">Font monospace untuk kode dan mesin tik</p>
+            <div class="image-info">
+              <span>Desainer: Howard Kettler</span>
+              <span>Kegunaan: Kode, Skrip</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Comic Sans</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: 'Comic Sans MS', cursive;">The quick brown fox jumps</div>
+            <p class="media-note">Font kasual untuk desain ramah anak</p>
+            <div class="image-info">
+              <span>Desainer: Vincent Connare</span>
+              <span>Kegunaan: Pendidikan, Anak</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Verdana</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Verdana, sans-serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font sans-serif untuk kejelasan di layar</p>
+            <div class="image-info">
+              <span>Desainer: Matthew Carter</span>
+              <span>Kegunaan: Web, UI</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Georgia</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Georgia, serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font serif untuk teks digital yang elegan</p>
+            <div class="image-info">
+              <span>Desainer: Matthew Carter</span>
+              <span>Kegunaan: Web, Editorial</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Roboto</h3>
+          </div>
+          <div class="media-content">
+            <div class="font-preview" style="font-family: Roboto, sans-serif;">The quick brown fox jumps</div>
+            <p class="media-note">Font sans-serif modern untuk antarmuka pengguna</p>
+            <div class="image-info">
+              <span>Desainer: Christian Robertson</span>
+              <span>Kegunaan: UI/UX, Web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">10 Film Animasi Populer</h2>
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-header">
+            <h3>JUMBO</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/Uch9_-xVL38" title="Jumbo Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Petualangan Don bersama dua sahabatnya, Nurman dan Mae</p>
+            <div class="image-info">
+              <span>Tahun: 2025</span>
+              <span>Studio: Visinema Animation</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Si Juki</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/5DThAqoz8Qo" title="Si Juki Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Keseharian penuh humor Si Juki dan teman-temannya</p>
+            <div class="image-info">
+              <span>Tahun: 2017</span>
+              <span>Studio: Falcon Pictures</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>The Lion King</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/4sj1MT05lAA" title="The Lion King Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Kisah Simba menjadi raja savana yang penuh drama</p>
+            <div class="image-info">
+              <span>Tahun: 1994</span>
+              <span>Studio: Disney</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Toy Story</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/KYz2wyBte-s" title="Toy Story Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Petualangan Woody, Buzz Lightyear, dan mainan hidup</p>
+            <div class="image-info">
+              <span>Tahun: 1995</span>
+              <span>Studio: Pixar</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Spirited Away</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/ByXuk9QqQkk" title="Spirited Away Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Perjalanan magis Chihiro di dunia roh yang misterius</p>
+            <div class="image-info">
+              <span>Tahun: 2001</span>
+              <span>Studio: Ghibli</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Naruto</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/j2hiC9BmJlQ" title="Naruto Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Petualangan Naruto untuk menjadi Hokage terhebat</p>
+            <div class="image-info">
+              <span>Tahun: 2002</span>
+              <span>Studio: Pierrot</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>SpongeBob SquarePants</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/a2cowVH03Xo" title="SpongeBob SquarePants Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Keseharian lucu SpongeBob di Bikini Bottom</p>
+            <div class="image-info">
+              <span>Tahun: 1999</span>
+              <span>Studio: Nickelodeon</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Zootopia</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/jWM0ct-OLsM" title="Zootopia Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Kelinci polisi dan rubah memecahkan misteri kota hewan</p>
+            <div class="image-info">
+              <span>Tahun: 2016</span>
+              <span>Studio: Disney</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Nussa</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/cW5yLx4K0fc" title="Nussa Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Kisah Nussa dan Rarra penuh nilai positif</p>
+            <div class="image-info">
+              <span>Tahun: 2021</span>
+              <span>Studio: Visinema Pictures</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="media-header">
+            <h3>Coco</h3>
+          </div>
+          <div class="media-content">
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/Rvr68u6k5sI" title="Coco Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="media-note">Perjalanan musikal di dunia orang mati penuh warna</p>
+            <div class="image-info">
+              <span>Tahun: 2017</span>
+              <span>Studio: Pixar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Media Digital, Font, dan Animasi. All rights reserved.</p>
+  </footer>
+</body>
+</html>
