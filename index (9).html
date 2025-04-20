@@ -4,248 +4,147 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Format Media Digital, Font, dan Film Animasi Populer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelementplayer.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Georgia&family=Verdana&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <style>
     :root {
-      --primary-color: #2563eb;
-      --secondary-color: #4b5563;
-      --background-color: #f9fafb;
-      --card-bg: #ffffff;
-      --card-border: #e5e7eb;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --radius: 12px;
+      --primary-color: #123458;
+      --secondary-color: #6B7280;
+      --background-color: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --card-border: #E5E7EB;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
-    
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--background-color);
-      color: #333;
-      line-height: 1.6;
-      padding: 20px;
-      max-width: 1280px;
+      color: #1F2937;
+      line-height: 1.5;
+      padding: 2rem;
+      max-width: 1440px;
       margin: 0 auto;
     }
-    
+
     header {
       text-align: center;
-      margin-bottom: 2rem;
-      padding: 1rem;
-    }
-    
-    h1 {
-      color: var(--primary-color);
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .container {
-      padding: 1rem;
-    }
-    
-    .section {
       margin-bottom: 3rem;
-    }
-    
-    .section-title {
+      padding: 2rem 0;
       position: relative;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      padding-bottom: 0.5rem;
     }
-    
-    .section-title::after {
+
+    header::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background-color: var(--primary-color);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-color), #A78BFA);
+      border-radius: 2px;
     }
-    
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .container {
+      padding: 1rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
     .media-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
     }
-    
+
     .media-card {
       background-color: var(--card-bg);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: var(--transition);
+      position: relative;
     }
-    
+
     .media-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
-    
+
     .media-header {
       padding: 1rem;
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color), #A78BFA);
       color: white;
       text-align: center;
+      font-weight: 500;
     }
-    
+
     .media-content {
-      padding: 1rem;
+      padding: 1.5rem;
     }
-    
-    .media-player {
+
+    .media-player, .image-preview, .youtube-embed, .font-preview {
       width: 100%;
-      border-radius: 8px;
+      height: 180px;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
       overflow: hidden;
     }
-    
+
     video, audio {
       width: 100%;
-      border-radius: 8px;
+      border-radius: var(--radius);
     }
-    
+
     .media-note {
-      margin-top: 1rem;
       font-size: 0.875rem;
       color: var(--secondary-color);
+      margin-bottom: 1rem;
       text-align: center;
-    }
-    
-    .download-link {
-      display: inline-block;
-      margin-top: 1rem;
-      color: var(--primary-color);
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--primary-color);
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-    
-    .download-link:hover {
-      background-color: var(--primary-color);
-      color: white;
-      text-decoration: none;
-    }
-    
-    .unsupported {
-      padding: 2rem 1rem;
-      text-align: center;
-      color: #ef4444;
-    }
-    
-    .image-preview, .youtube-embed, .font-preview {
-      width: 100%;
-      height: 160px;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-
-    .youtube-embed, .font-preview {
-      border: none;
-    }
-
-    .font-preview {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f3f4f6;
-      font-size: 1.5rem;
-      text-align: center;
-      padding: 1rem;
-      overflow: hidden;
-    }
-
-    .video-preview, .audio-preview {
-      width: 100%;
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #111827;
-      border-radius: 8px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .video-preview::before, .audio-preview::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, rgba(37,99,235,0.3), rgba(37,99,235,0.1));
-      z-index: 1;
-    }
-
-    .video-preview-icon, .audio-preview-icon {
-      font-size: 3rem;
-      z-index: 2;
     }
 
     .format-specs {
-      margin-top: 0.75rem;
-      padding: 0.5rem;
-      background-color: #f3f4f6;
+      background-color: #F3F4F6;
+      padding: 0.75rem;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
 
     .format-specs div {
       display: flex;
       justify-content: space-between;
-      padding: 0.25rem 0;
-      border-bottom: 1px dashed #e5e7eb;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #E5E7EB;
     }
 
     .format-specs div:last-child {
       border-bottom: none;
-    }
-    
-    .image-info {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: var(--secondary-color);
-    }
-    
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 1rem;
-      color: var(--secondary-color);
-      font-size: 0.875rem;
-    }
-    
-    @media (max-width: 768px) {
-      .media-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .media-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .video-icon {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-      color: var(--primary-color);
     }
 
     .top-features {
@@ -256,62 +155,112 @@
     }
 
     .feature-tag {
-      background-color: #e0f2fe;
-      color: #0369a1;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
+      background-color: #EDF2FF;
+      color: var(--primary-color);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
       border-radius: 4px;
-      display: inline-flex;
+      font-weight: 500;
+    }
+
+    .font-preview {
+      display: flex;
       align-items: center;
+      justify-content: center;
+      background-color: #F3F4F6;
+      font-size: 1.25rem;
+      font-weight: 500;
     }
 
-    li {
-        float: left;
+    .image-info {
+      font-size: 0.8rem;
+      color: var(--secondary-color);
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
     }
 
-    li a {
-        display: inline-block;
-        color: black;
-        text-align: center;
-        padding: 19px 16px;
-        background-color: whitesmoke;
-        text-decoration: none;
-        margin-top: 0;
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      color: var(--secondary-color);
+      font-size: 0.875rem;
+      border-top: 1px solid #E5E7EB;
     }
 
-    li a:hover {
-        color: #ff6a3d;
+    .nav-bar {
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+      position: sticky;
+      top: 1rem;
+      z-index: 10;
     }
 
-    .homepage {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: whitesmoke;
-        transform: translateY(2px);
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
     }
 
-    .homepage a {
-        font-weight: 700;
+    .nav-bar a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-bar a:hover {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <ul class="homepage" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="index (4).html">TUGAS</a></li>
-    <li><a href="index (6).html">ABOUT</a></li>
-    <li><a href="index (3).html">CONTACT</a></li>
-  </ul>
-
   <header>
     <h1>Format Media Digital, Font, dan Film Animasi Populer</h1>
   </header>
 
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="#gambar">Gambar</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#audio">Audio</a></li>
+      <li><a href="#font">Font</a></li>
+      <li><a href="#animasi">Animasi</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
-    <section class="section">
+    <section class="section" id="gambar">
       <h2 class="section-title">Format Gambar Populer</h2>
       <div class="media-grid">
         <div class="media-card">
@@ -435,10 +384,10 @@
             <h3>SVG</h3>
           </div>
           <div class="media-content">
-            <svg viewBox="0 0 200 160" class="image-preview">
-              <rect x="5" y="5" width="190" height="150" fill="#f3f4f6" stroke="#2563eb" stroke-width="3" rx="8" />
-              <circle cx="100" cy="80" r="30" fill="#2563eb" opacity="0.8" />
-              <text x="100" y="140" text-anchor="middle" fill="#2563eb" font-size="12">SVG Vektor</text>
+            <svg viewBox="0 0 200 180" class="image-preview">
+              <rect x="5" y="5" width="190" height="170" fill="#F3F4F6" stroke="#7C3AED" stroke-width="3" rx="8" />
+              <circle cx="100" cy="90" r="30" fill="#7C3AED" opacity="0.8" />
+              <text x="100" y="150" text-anchor="middle" fill="#7C3AED" font-size="12">SVG Vektor</text>
             </svg>
             <p class="media-note">Format vektor skalabel tanpa kehilangan kualitas</p>
             <div class="format-specs">
@@ -610,7 +559,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="video">
       <h2 class="section-title">Format Video Populer</h2>
       <div class="media-grid">
         <div class="media-card">
@@ -948,8 +897,8 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">10 Format Audio Populer</h2>
+    <section class="section" id="audio">
+      <h2 class="section-title">Format Audio Populer</h2>
       <div class="media-grid">
         <div class="media-card">
           <div class="media-header">
@@ -957,7 +906,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -977,6 +926,11 @@
                 <span>Sangat Baik</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Kompatibilitas Luas</span>
+              <span class="feature-tag">Ukuran Kecil</span>
+              <span class="feature-tag">Streaming</span>
+            </div>
           </div>
         </div>
         
@@ -986,7 +940,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://filesamples.com/samples/audio/aac/sample1.aac" type="audio/aac">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -1006,6 +960,10 @@
                 <span>Baik</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Kualitas Tinggi</span>
+              <span class="feature-tag">Efisiensi</span>
+            </div>
           </div>
         </div>
         
@@ -1015,7 +973,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.wav" type="audio/wav">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -1035,6 +993,10 @@
                 <span>Baik</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Kualitas Tinggi</span>
+              <span class="feature-tag">Editing Audio</span>
+            </div>
           </div>
         </div>
         
@@ -1044,7 +1006,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://filesamples.com/samples/audio/flac/sample1.flac" type="audio/flac">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -1064,6 +1026,10 @@
                 <span>Sedang</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Lossless</span>
+              <span class="feature-tag">Audiophile</span>
+            </div>
           </div>
         </div>
         
@@ -1073,7 +1039,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.ogg" type="audio/ogg">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -1093,6 +1059,10 @@
                 <span>Baik</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Open Source</span>
+              <span class="feature-tag">Efisiensi</span>
+            </div>
           </div>
         </div>
         
@@ -1102,7 +1072,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://filesamples.com/samples/audio/m4a/sample1.m4a" type="audio/mp4">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -1122,6 +1092,10 @@
                 <span>Baik</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Apple Devices</span>
+              <span class="feature-tag">Kualitas Tinggi</span>
+            </div>
           </div>
         </div>
         
@@ -1131,7 +1105,7 @@
           </div>
           <div class="media-content">
             <div class="media-player">
-              <audio class="mejs-player" controls>
+              <audio controls>
                 <source src="https://filesamples.com/samples/audio/amr/sample1.amr" type="audio/amr">
                 Browser Anda tidak mendukung tag audio.
               </audio>
@@ -1151,6 +1125,10 @@
                 <span>Terbatas</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Rekaman Suara</span>
+              <span class="feature-tag">Mobile</span>
+            </div>
           </div>
         </div>
         
@@ -1159,8 +1137,11 @@
             <h3>WMA</h3>
           </div>
           <div class="media-content">
-            <div class="audio-preview">
-              <span class="audio-preview-icon">🎵</span>
+            <div class="media-player">
+              <audio controls>
+                <source src="https://filesamples.com/samples/audio/wma/sample1.wma" type="audio/x-ms-wma">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
             </div>
             <p class="media-note">Windows Media Audio dengan kompresi tinggi</p>
             <div class="format-specs">
@@ -1177,6 +1158,10 @@
                 <span>Rendah</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Windows</span>
+              <span class="feature-tag">Kompresi Tinggi</span>
+            </div>
           </div>
         </div>
         
@@ -1185,8 +1170,11 @@
             <h3>ALAC</h3>
           </div>
           <div class="media-content">
-            <div class="audio-preview">
-              <span class="audio-preview-icon">🎵</span>
+            <div class="media-player">
+              <audio controls>
+                <source src="https://filesamples.com/samples/audio/m4a/sample1.m4a" type="audio/mp4">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
             </div>
             <p class="media-note">Apple Lossless Audio Codec untuk kualitas tinggi</p>
             <div class="format-specs">
@@ -1203,6 +1191,10 @@
                 <span>Sedang</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Lossless</span>
+              <span class="feature-tag">Apple Devices</span>
+            </div>
           </div>
         </div>
         
@@ -1211,8 +1203,11 @@
             <h3>AIFF</h3>
           </div>
           <div class="media-content">
-            <div class="audio-preview">
-              <span class="audio-preview-icon">🎵</span>
+            <div class="media-player">
+              <audio controls>
+                <source src="https://filesamples.com/samples/audio/aiff/sample1.aiff" type="audio/aiff">
+                Browser Anda tidak mendukung tag audio.
+              </audio>
             </div>
             <p class="media-note">Audio Interchange File Format tanpa kompresi</p>
             <div class="format-specs">
@@ -1229,13 +1224,17 @@
                 <span>Sedang</span>
               </div>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Kualitas Tinggi</span>
+              <span class="feature-tag">Editing Audio</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">10 Font Populer</h2>
+    <section class="section" id="font">
+      <h2 class="section-title">Font Populer</h2>
       <div class="media-grid">
         <div class="media-card">
           <div class="media-header">
@@ -1247,6 +1246,10 @@
             <div class="image-info">
               <span>Desainer: Lucas de Groot</span>
               <span>Kegunaan: Dokumen, UI</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Modern</span>
+              <span class="feature-tag">Dokumen</span>
             </div>
           </div>
         </div>
@@ -1262,6 +1265,10 @@
               <span>Desainer: Stanley Morison</span>
               <span>Kegunaan: Cetak, Akademik</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Klasik</span>
+              <span class="feature-tag">Formal</span>
+            </div>
           </div>
         </div>
         
@@ -1275,6 +1282,10 @@
             <div class="image-info">
               <span>Desainer: Robin Nicholas</span>
               <span>Kegunaan: Web, Dokumen</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Serbaguna</span>
+              <span class="feature-tag">Bersih</span>
             </div>
           </div>
         </div>
@@ -1290,6 +1301,10 @@
               <span>Desainer: Max Miedinger</span>
               <span>Kegunaan: Branding, Web</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Ikonik</span>
+              <span class="feature-tag">Modern</span>
+            </div>
           </div>
         </div>
         
@@ -1303,6 +1318,10 @@
             <div class="image-info">
               <span>Desainer: Claude Garamond</span>
               <span>Kegunaan: Buku, Editorial</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Elegan</span>
+              <span class="feature-tag">Cetak</span>
             </div>
           </div>
         </div>
@@ -1318,6 +1337,10 @@
               <span>Desainer: Howard Kettler</span>
               <span>Kegunaan: Kode, Skrip</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Monospace</span>
+              <span class="feature-tag">Kode</span>
+            </div>
           </div>
         </div>
         
@@ -1331,6 +1354,10 @@
             <div class="image-info">
               <span>Desainer: Vincent Connare</span>
               <span>Kegunaan: Pendidikan, Anak</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Kasual</span>
+              <span class="feature-tag">Anak</span>
             </div>
           </div>
         </div>
@@ -1346,6 +1373,10 @@
               <span>Desainer: Matthew Carter</span>
               <span>Kegunaan: Web, UI</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Jelas</span>
+              <span class="feature-tag">Web</span>
+            </div>
           </div>
         </div>
         
@@ -1359,6 +1390,10 @@
             <div class="image-info">
               <span>Desainer: Matthew Carter</span>
               <span>Kegunaan: Web, Editorial</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Elegan</span>
+              <span class="feature-tag">Digital</span>
             </div>
           </div>
         </div>
@@ -1374,13 +1409,17 @@
               <span>Desainer: Christian Robertson</span>
               <span>Kegunaan: UI/UX, Web</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Modern</span>
+              <span class="feature-tag">UI/UX</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">10 Film Animasi Populer</h2>
+    <section class="section" id="animasi">
+      <h2 class="section-title">Film Animasi Populer</h2>
       <div class="media-grid">
         <div class="media-card">
           <div class="media-header">
@@ -1393,6 +1432,10 @@
               <span>Tahun: 2025</span>
               <span>Studio: Visinema Animation</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Petualangan</span>
+              <span class="feature-tag">Lokal</span>
+            </div>
           </div>
         </div>
         
@@ -1401,11 +1444,16 @@
             <h3>Si Juki</h3>
           </div>
           <div class="media-content">
-            <iframe class="youtube-embed" src="https://www.youtube.com/embed/5DThAqoz8Qo" title="Si Juki Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="youtube-embed" src="https://www.youtube.com/embed/5DThAqoz8Qo" title="Si Juki Trailer" frameborder="0" allow="accelero
+meter; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p class="media-note">Keseharian penuh humor Si Juki dan teman-temannya</p>
             <div class="image-info">
               <span>Tahun: 2017</span>
               <span>Studio: Falcon Pictures</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Humor</span>
+              <span class="feature-tag">Lokal</span>
             </div>
           </div>
         </div>
@@ -1421,6 +1469,10 @@
               <span>Tahun: 1994</span>
               <span>Studio: Disney</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Drama</span>
+              <span class="feature-tag">Klasik</span>
+            </div>
           </div>
         </div>
         
@@ -1434,6 +1486,10 @@
             <div class="image-info">
               <span>Tahun: 1995</span>
               <span>Studio: Pixar</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Petualangan</span>
+              <span class="feature-tag">Klasik</span>
             </div>
           </div>
         </div>
@@ -1449,6 +1505,10 @@
               <span>Tahun: 2001</span>
               <span>Studio: Ghibli</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Fantasi</span>
+              <span class="feature-tag">Magis</span>
+            </div>
           </div>
         </div>
         
@@ -1462,6 +1522,10 @@
             <div class="image-info">
               <span>Tahun: 2002</span>
               <span>Studio: Pierrot</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Aksi</span>
+              <span class="feature-tag">Anime</span>
             </div>
           </div>
         </div>
@@ -1477,6 +1541,10 @@
               <span>Tahun: 1999</span>
               <span>Studio: Nickelodeon</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Humor</span>
+              <span class="feature-tag">Anak</span>
+            </div>
           </div>
         </div>
         
@@ -1490,6 +1558,10 @@
             <div class="image-info">
               <span>Tahun: 2016</span>
               <span>Studio: Disney</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Misteri</span>
+              <span class="feature-tag">Petualangan</span>
             </div>
           </div>
         </div>
@@ -1505,6 +1577,10 @@
               <span>Tahun: 2021</span>
               <span>Studio: Visinema Pictures</span>
             </div>
+            <div class="top-features">
+              <span class="feature-tag">Edukasi</span>
+              <span class="feature-tag">Lokal</span>
+            </div>
           </div>
         </div>
         
@@ -1518,6 +1594,10 @@
             <div class="image-info">
               <span>Tahun: 2017</span>
               <span>Studio: Pixar</span>
+            </div>
+            <div class="top-features">
+              <span class="feature-tag">Musikal</span>
+              <span class="feature-tag">Emosional</span>
             </div>
           </div>
         </div>
